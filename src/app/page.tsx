@@ -1,104 +1,220 @@
-import Image from "next/image";
-import Greet from "./greet";
-
 export default function Home() {
   return (
-    <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
-      <main className="flex flex-col gap-[32px] row-start-2 items-center sm:items-start">
-        <Greet />
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol className="list-inside list-decimal text-sm/6 text-center sm:text-left font-[family-name:var(--font-geist-mono)]">
-          <li className="mb-2 tracking-[-.01em]">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] px-1 py-0.5 rounded font-[family-name:var(--font-geist-mono)] font-semibold">
-              src/app/page.tsx
-            </code>
-            .
-          </li>
-          <li className="tracking-[-.01em]">
-            Save and see your changes instantly.
-          </li>
-        </ol>
+    <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)] bg-blue-50">
+      {/* Header */}
+      <header className="row-start-1 w-full text-center py-4 bg-blue-100 shadow-md">
+        <h1 className="text-2xl font-bold text-blue-900">Tacrometer</h1>
+      </header>
 
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:w-auto"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 w-full sm:w-auto md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Read our docs
-          </a>
-        </div>
+      <main className="flex flex-col gap-[32px] row-start-2 items-center sm:items-center w-full">
+        <form className="w-full max-w-4xl space-y-8 bg-white p-8 rounded-lg shadow-lg border border-blue-200">
+          {/* Patient Information Section */}
+          <div className="p-6 border border-blue-100 rounded-lg shadow-sm bg-blue-50">
+            <h2 className="text-xl font-semibold mb-4 text-blue-900">
+              Patient Information
+            </h2>
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+              <div>
+                <label
+                  htmlFor="sex"
+                  className="block text-sm font-medium text-blue-800"
+                >
+                  Sex
+                </label>
+                <select
+                  id="sex"
+                  name="sex"
+                  className="mt-1 block w-full rounded-md border-blue-300 shadow-sm focus:border-blue-500 focus:ring-blue-500"
+                >
+                  <option value="male">Male</option>
+                  <option value="female">Female</option>
+                </select>
+              </div>
+              <div>
+                <label
+                  htmlFor="age"
+                  className="block text-sm font-medium text-blue-800"
+                >
+                  Age
+                </label>
+                <input
+                  type="number"
+                  id="age"
+                  name="age"
+                  className="mt-1 block w-full rounded-md border-blue-300 shadow-sm focus:border-blue-500 focus:ring-blue-500"
+                />
+              </div>
+              <div>
+                <label
+                  htmlFor="height"
+                  className="block text-sm font-medium text-blue-800"
+                >
+                  Height (cm)
+                </label>
+                <input
+                  type="number"
+                  id="height"
+                  name="height"
+                  className="mt-1 block w-full rounded-md border-blue-300 shadow-sm focus:border-blue-500 focus:ring-blue-500"
+                />
+              </div>
+              <div>
+                <label
+                  htmlFor="weight"
+                  className="block text-sm font-medium text-blue-800"
+                >
+                  Weight (kg)
+                </label>
+                <input
+                  type="number"
+                  id="weight"
+                  name="weight"
+                  className="mt-1 block w-full rounded-md border-blue-300 shadow-sm focus:border-blue-500 focus:ring-blue-500"
+                />
+              </div>
+              <div className="sm:col-span-2">
+                <label
+                  htmlFor="hematocrit"
+                  className="block text-sm font-medium text-blue-800"
+                >
+                  Hematocrit (%)
+                </label>
+                <input
+                  type="number"
+                  id="hematocrit"
+                  name="hematocrit"
+                  className="mt-1 block w-full rounded-md border-blue-300 shadow-sm focus:border-blue-500 focus:ring-blue-500"
+                />
+              </div>
+            </div>
+          </div>
+
+          {/* Dose Information Section */}
+          <div className="p-6 border border-blue-100 rounded-lg shadow-sm bg-blue-50">
+            <h2 className="text-xl font-semibold mb-4 text-blue-900">
+              Dose Information
+            </h2>
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+              <div className="sm:col-span-2">
+                <label
+                  htmlFor="dose"
+                  className="block text-sm font-medium text-blue-800"
+                >
+                  Dose (mg)
+                </label>
+                <input
+                  type="number"
+                  id="dose"
+                  name="dose"
+                  className="mt-1 block w-full rounded-md border-blue-300 shadow-sm focus:border-blue-500 focus:ring-blue-500"
+                />
+              </div>
+              <div className="sm:col-span-2">
+                <label className="block text-sm font-medium text-blue-800">
+                  Frequency
+                </label>
+                <div className="mt-1 flex items-center space-x-6">
+                  <label className="flex items-center">
+                    <input
+                      type="radio"
+                      name="frequency"
+                      value="once"
+                      className="h-4 w-4 text-blue-600 border-blue-300 focus:ring-blue-500"
+                    />
+                    <span className="ml-2 text-sm text-blue-800">
+                      Once daily
+                    </span>
+                  </label>
+                  <label className="flex items-center">
+                    <input
+                      type="radio"
+                      name="frequency"
+                      value="twice"
+                      className="h-4 w-4 text-blue-600 border-blue-300 focus:ring-blue-500"
+                    />
+                    <span className="ml-2 text-sm text-blue-800">
+                      Twice daily
+                    </span>
+                  </label>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {/* Dose Timing and Concentration Section */}
+          <div className="p-6 border border-blue-100 rounded-lg shadow-sm bg-blue-50">
+            <h2 className="text-xl font-semibold mb-4 text-blue-900">
+              Dose Timing and Concentration
+            </h2>
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+              <div className="sm:col-span-2">
+                <label
+                  htmlFor="last-dose-time"
+                  className="block text-sm font-medium text-blue-800"
+                >
+                  Last Dose Taken At
+                </label>
+                <input
+                  type="time"
+                  id="last-dose-time"
+                  name="last-dose-time"
+                  className="mt-1 block w-full rounded-md border-blue-300 shadow-sm focus:border-blue-500 focus:ring-blue-500"
+                />
+              </div>
+              <div>
+                <label
+                  htmlFor="concentration-t0"
+                  className="block text-sm font-medium text-blue-800"
+                >
+                  Concentration at 0 Hours (ng/mL)
+                </label>
+                <input
+                  type="number"
+                  id="concentration-t0"
+                  name="concentration-t0"
+                  className="mt-1 block w-full rounded-md border-blue-300 shadow-sm focus:border-blue-500 focus:ring-blue-500"
+                />
+              </div>
+              <div>
+                <label
+                  htmlFor="concentration-t1"
+                  className="block text-sm font-medium text-blue-800"
+                >
+                  Concentration at 1 Hour (ng/mL)
+                </label>
+                <input
+                  type="number"
+                  id="concentration-t1"
+                  name="concentration-t1"
+                  className="mt-1 block w-full rounded-md border-blue-300 shadow-sm focus:border-blue-500 focus:ring-blue-500"
+                />
+              </div>
+              <div>
+                <label
+                  htmlFor="concentration-t3"
+                  className="block text-sm font-medium text-blue-800"
+                >
+                  Concentration at 3 Hours (ng/mL)
+                </label>
+                <input
+                  type="number"
+                  id="concentration-t3"
+                  name="concentration-t3"
+                  className="mt-1 block w-full rounded-md border-blue-300 shadow-sm focus:border-blue-500 focus:ring-blue-500"
+                />
+              </div>
+            </div>
+          </div>
+        </form>
       </main>
-      <footer className="row-start-3 flex gap-[24px] flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
+
+      {/* Footer */}
+      <footer className="row-start-3 flex flex-col gap-[8px] items-center justify-center text-blue-800 text-sm">
+        <p>Developed by Markus Hovd</p>
+        <p className="text-xs text-blue-600">
+          Disclaimer: This application is for informational purposes only and
+          should not replace professional medical advice.
+        </p>
       </footer>
     </div>
   );
